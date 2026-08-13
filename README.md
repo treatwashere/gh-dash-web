@@ -1,6 +1,6 @@
 gh-dash-web
 
-A web-based dashboard for GitHub pull requests and issues, inspired by gh-dash (https://github.com/dlvhdr/gh-dash) by dlvhdr, a terminal UI for GitHub. This project reimagines that experience for the browser: fast, keyboard-driven, configurable sections backed by GitHub search queries.
+A web-based dashboard for GitHub pull requests and issues, inspired by [gh-dash](https://github.com/dlvhdr/gh-dash) by dlvhdr, a terminal UI for GitHub. This project reimagines that experience for the browser: fast, keyboard-driven, configurable sections backed by GitHub search queries.
 
 Features
   
