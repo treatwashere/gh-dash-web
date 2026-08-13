@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>gh-dash-web</title>
+<link rel="icon" href="data:," />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="app">
+
+<header class="topbar">
+<div class="brand">
+<span class="brand-icon"></span>
+<span class="brand-name">gh-dash</span>
+<span class="brand-sub">web</span>
+</div>
+<div class="topbar-actions">
+<span id="rate-limit" class="rate-limit" title="GitHub API rate limit"></span>
+<button id="refresh-btn" class="btn" title="Refresh (r)">Refresh</button>
+<button id="settings-btn" class="btn" title="Settings (,)">Settings</button>
+</div>
+</header>
+
+<nav id="section-tabs" class="section-tabs"></nav>
+
+<main id="main" class="main">
+<div id="empty-state" class="empty-state hidden">
+<p>No token configured yet.</p>
+<p>Open Settings and add a GitHub personal access token to get started.</p>
+</div>
+<table id="items-table" class="items-table hidden">
+<thead id="items-head"></thead>
+<tbody id="items-body"></tbody>
+</table>
+<div id="loading" class="loading hidden">Loading...</div>
+</main>
+
+<footer class="statusbar">
+<span class="hint">j/k move</span>
+<span class="hint">left/right or 1-9 switch section</span>
+<span class="hint">o/Enter open</span>
+<span class="hint">r refresh</span>
+<span class="hint">, settings</span>
+<span id="status-message" class="status-message"></span>
+</footer>
+</div>
+
+<div id="settings-modal" class="modal hidden">
+<div class="modal-box">
+<div class="modal-header">
+<h2>Settings</h2>
+<button id="settings-close" class="btn btn-icon" title="Close">close</button>
+</div>
+
+<div class="modal-body">
+<section class="settings-section">
+<h3>GitHub token</h3>
+<p class="muted">Needs at least repo and read:org scopes for private data. Stored only in this browser's localStorage, never sent anywhere except directly to api.github.com.</p>
+<div class="row">
+<input id="token-input" type="password" placeholder="ghp_..." autocomplete="off" />
+<button id="token-save" class="btn btn-primary">Save</button>
+<button id="token-clear" class="btn">Clear</button>
+</div>
+</section>
+
+<section class="settings-section">
+<h3>Sections</h3>
+<p class="muted">Each section is a GitHub search query, just like gh-dash's YAML config, but editable live here.</p>
+<div id="sections-list" class="sections-list"></div>
+<div class="row">
+<input id="new-section-title" type="text" placeholder="Section title" />
+<select id="new-section-type">
+<option value="pr">Pull Requests</option>
+<option value="issue">Issues</option>
+</select>
+</div>
+<div class="row">
+<input id="new-section-query" type="text" placeholder="Search query, e.g. author:@me is:open" />
+<button id="add-section-btn" class="btn btn-primary">Add section</button>
+</div>
+</section>
+
+<section class="settings-section">
+<h3>Import / export config</h3>
+<div class="row">
+<button id="export-config-btn" class="btn">Export JSON</button>
+<button id="import-config-btn" class="btn">Import JSON</button>
+</div>
+<textarea id="config-textarea" rows="6" placeholder="Config JSON appears here"></textarea>
+</section>
+</div>
+</div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
